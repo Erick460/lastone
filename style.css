@@ -1,0 +1,150 @@
+/* Estilos Generales */
+body {
+    background-color: #f1f1f1;
+    font-family: 'Lato', sans-serif;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.site-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Encabezado */
+.site-header {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+}
+
+.site-header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: bold;
+}
+
+.sign-in {
+    border-left: 1px solid #555;
+    padding-left: 1.5rem;
+}
+
+/* El Grid principal de noticias */
+.news-grid {
+    display: grid;
+    /* Columnas: 1fr para la izquierda, 2fr para el centro, 1fr para la derecha */
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+}
+
+/* Estilos de los artículos */
+.news-item {
+    cursor: pointer;
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.news-item h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+}
+
+.news-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 0.5rem 0;
+}
+
+.metadata {
+    font-size: 0.8rem;
+    color: #777;
+    font-weight: bold;
+}
+
+/* Estilos específicos para cada columna */
+.left-column .news-item {
+    margin-bottom: 2rem;
+}
+
+.main-story .news-item h2 {
+    font-size: 2.8rem; /* Titular mucho más grande */
+    line-height: 1.1;
+}
+
+.main-story .news-item p {
+    font-size: 1.1rem;
+}
+
+.right-column .headline-only {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.right-column .headline-only:last-child {
+    border-bottom: none;
+}
+
+.right-column .headline-only h2 {
+    font-size: 1.2rem;
+}
+
+
+/* Diseño Responsivo para móviles */
+@media (max-width: 992px) {
+    .news-grid {
+        /* Cambia a una sola columna */
+        grid-template-columns: 1fr;
+    }
+
+    .main-story {
+        /* Se asegura que la noticia principal aparezca primero */
+        order: -1; 
+    }
+    
+    .main-story .news-item h2 {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* --- Estilos del Poster Modal (sin cambios) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); display: flex;
+    justify-content: center; align-items: center; opacity: 1;
+    transition: opacity 0.3s ease; z-index: 1000;
+}
+.modal-overlay.hidden { opacity: 0; pointer-events: none; }
+.modal-content {
+    background-color: #fff; padding: 2rem; border-radius: 5px;
+    max-width: 800px; width: 90%; position: relative;
+    transform: scale(1); transition: transform 0.3s ease;
+}
+.modal-overlay.hidden .modal-content { transform: scale(0.9); }
+.close-button {
+    position: absolute; top: 10px; right: 20px;
+    font-size: 2.5rem; color: #555; cursor: pointer;
+}
+#modal-image { max-width: 100%; max-height: 400px; margin-bottom: 1rem; }
+#modal-title { font-family: 'Merriweather', serif; font-size: 2.5rem; }
+#modal-text { font-size: 1.1rem; line-height: 1.6; }
